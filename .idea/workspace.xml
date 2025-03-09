@@ -5,12 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45566237-c2ba-44b4-af19-90582e0ff79b" name="Changes" comment="Delete frontend">
-      <change beforePath="$PROJECT_DIR$/.idea/BigData.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BigData.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/csv-editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-editor.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web.py" beforeDir="false" afterPath="$PROJECT_DIR$/Web.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/DecisionTree.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/DecisionTree.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cancer Prediction.py" beforeDir="false" afterPath="$PROJECT_DIR$/Cancer Prediction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/model.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unlabeled_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/unlabeled_data.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,6 +132,10 @@
       <workItem from="1741490553706" duration="4228000" />
       <workItem from="1741495368019" duration="1255000" />
       <workItem from="1741506198873" duration="616000" />
+      <workItem from="1741513404062" duration="634000" />
+      <workItem from="1741514233009" duration="15000" />
+      <workItem from="1741514624126" duration="2736000" />
+      <workItem from="1741517480932" duration="431000" />
     </task>
     <task id="LOCAL-00001" summary="Delete frontend">
       <option name="closed" value="true" />
