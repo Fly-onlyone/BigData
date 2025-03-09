@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45566237-c2ba-44b4-af19-90582e0ff79b" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="45566237-c2ba-44b4-af19-90582e0ff79b" name="Changes" comment="Delete frontend">
+      <change beforePath="$PROJECT_DIR$/.idea/BigData.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/BigData.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/csv-editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-editor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ApplyModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/ApplyModel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Web.py" beforeDir="false" afterPath="$PROJECT_DIR$/Web.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/DecisionTree.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/DecisionTree.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,9 +59,10 @@
   &quot;keyToString&quot;: {
     &quot;Python.app.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;Shell Script.Run streamlit.executor&quot;: &quot;Run&quot;,
     &quot;Shell Script.Unnamed.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;FastApi&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore_missing_gitignore&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/OneDrive - Ho Chi Minh City University of Foreign Languages and Information Technology - HUFLIT/Documents/AltairRapidMiner/BigData/model/Train.py&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -127,11 +130,28 @@
       <workItem from="1741358455623" duration="1290000" />
       <workItem from="1741394831066" duration="3194000" />
       <workItem from="1741398701487" duration="491000" />
+      <workItem from="1741403025695" duration="147000" />
+      <workItem from="1741490553706" duration="4228000" />
+      <workItem from="1741495368019" duration="1255000" />
+      <workItem from="1741506198873" duration="616000" />
     </task>
+    <task id="LOCAL-00001" summary="Delete frontend">
+      <option name="closed" value="true" />
+      <created>1741403168539</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1741403168539</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Delete frontend" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delete frontend" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
