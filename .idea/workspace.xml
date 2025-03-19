@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45566237-c2ba-44b4-af19-90582e0ff79b" name="Changes" comment="Delete frontend">
+    <list default="true" id="45566237-c2ba-44b4-af19-90582e0ff79b" name="Changes" comment="Demo 1">
+      <change afterPath="$PROJECT_DIR$/model/NaiveBayes.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/RandomForest.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cancer Prediction.py" beforeDir="false" afterPath="$PROJECT_DIR$/Cancer Prediction.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/model.pkl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/unlabeled_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/unlabeled_data.csv" afterDir="false" />
     </list>
@@ -136,6 +137,9 @@
       <workItem from="1741514233009" duration="15000" />
       <workItem from="1741514624126" duration="2736000" />
       <workItem from="1741517480932" duration="431000" />
+      <workItem from="1741521002521" duration="58000" />
+      <workItem from="1741839432834" duration="134000" />
+      <workItem from="1741839577256" duration="4487000" />
     </task>
     <task id="LOCAL-00001" summary="Delete frontend">
       <option name="closed" value="true" />
@@ -145,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741403168539</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Demo 1">
+      <option name="closed" value="true" />
+      <created>1741521051114</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1741521051114</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,7 +165,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Delete frontend" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete frontend" />
+    <MESSAGE value="Demo 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Demo 1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
