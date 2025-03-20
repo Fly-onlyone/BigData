@@ -19,7 +19,7 @@ def rm_main(model, data):
     - data: DataFrame chưa có label
     """
     # Chạy Streamlit trong một luồng riêng
-    threading.Thread(target=run_streamlit, args=(model, data), daemon=True).start()
+    run_streamlit(model, data)
     webbrowser.open("http://localhost:8501")
     return "Streamlit UI đã được mở!"
 

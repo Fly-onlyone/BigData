@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45566237-c2ba-44b4-af19-90582e0ff79b" name="Changes" comment="Demo 1">
-      <change afterPath="$PROJECT_DIR$/model/NaiveBayes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/RandomForest.py" afterDir="false" />
+    <list default="true" id="45566237-c2ba-44b4-af19-90582e0ff79b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Hive_server.ipynb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RandomData.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Cancer Prediction.py" beforeDir="false" afterPath="$PROJECT_DIR$/Cancer Prediction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web.py" beforeDir="false" afterPath="$PROJECT_DIR$/Web.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebAPI_Test.ipynb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/model.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/unlabeled_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/unlabeled_data.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +21,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Jupyter Notebook" />
         <option value="Python Script" />
       </list>
     </option>
@@ -48,7 +51,9 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2tskuQoKMnNs9HhEjeKZmaZGxPY" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="openDirectoriesWithSingleClick" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -56,6 +61,8 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Python.Download.executor&quot;: &quot;Run&quot;,
+    &quot;Python.RandomData.executor&quot;: &quot;Run&quot;,
     &quot;Python.app.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
@@ -63,22 +70,71 @@
     &quot;Shell Script.Unnamed.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore_missing_gitignore&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/OneDrive - Ho Chi Minh City University of Foreign Languages and Information Technology - HUFLIT/Documents/AltairRapidMiner/BigData/model/Train.py&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/OneDrive - Ho Chi Minh City University of Foreign Languages and Information Technology - HUFLIT/Documents/AltairRapidMiner/BigData/spark-hive-jars&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.intellij.jupyter.core.jupyter.connections.configuration.JupyterServerConfigurable&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\PC\OneDrive - Ho Chi Minh City University of Foreign Languages and Information Technology - HUFLIT\Documents\AltairRapidMiner\BigData\spark-hive-jars" />
       <recent name="C:\Users\PC\OneDrive - Ho Chi Minh City University of Foreign Languages and Information Technology - HUFLIT\Documents\AltairRapidMiner\BigData" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.Download">
+    <configuration name="Download" type="PythonConfigurationType" factoryName="Python">
+      <module name="BigData" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="BigData" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Download.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="RandomData" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="BigData" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="BigData" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RandomData.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Run streamlit" type="ShConfigurationType">
       <option name="SCRIPT_TEXT" value="streamlit run app.py" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
@@ -94,12 +150,17 @@
       <envs />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="Python.Download" />
+      <item itemvalue="Python.RandomData" />
+      <item itemvalue="Shell Script.Run streamlit" />
+    </list>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PY-243.25659.43" />
-        <option value="bundled-python-sdk-181015f7ab06-4df51de95216-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.25659.43" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PY-243.26053.29" />
+        <option value="bundled-python-sdk-b1dbf8ef85a6-4df51de95216-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.26053.29" />
       </set>
     </attachedChunks>
   </component>
@@ -140,6 +201,19 @@
       <workItem from="1741521002521" duration="58000" />
       <workItem from="1741839432834" duration="134000" />
       <workItem from="1741839577256" duration="4487000" />
+      <workItem from="1742353619994" duration="4117000" />
+      <workItem from="1742358220231" duration="116000" />
+      <workItem from="1742380827874" duration="3597000" />
+      <workItem from="1742384760183" duration="262000" />
+      <workItem from="1742385033836" duration="904000" />
+      <workItem from="1742386086376" duration="2130000" />
+      <workItem from="1742393388593" duration="2179000" />
+      <workItem from="1742395700106" duration="379000" />
+      <workItem from="1742396225150" duration="436000" />
+      <workItem from="1742426921082" duration="170000" />
+      <workItem from="1742427971527" duration="250000" />
+      <workItem from="1742428236049" duration="480000" />
+      <workItem from="1742428730197" duration="2779000" />
     </task>
     <task id="LOCAL-00001" summary="Delete frontend">
       <option name="closed" value="true" />
@@ -157,7 +231,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741521051114</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Demo 1">
+      <option name="closed" value="true" />
+      <created>1742353636598</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1742353636598</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,7 +248,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Delete frontend" />
     <MESSAGE value="Demo 1" />
-    <option name="LAST_COMMIT_MESSAGE" value="Demo 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -179,7 +261,13 @@
       </breakpoints>
     </breakpoint-manager>
   </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/BigData$RandomData.coverage" NAME="RandomData Coverage Results" MODIFIED="1742356866195" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/BigData$app.coverage" NAME="app Coverage Results" MODIFIED="1741168453326" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/BigData$Download.coverage" NAME="Download Coverage Results" MODIFIED="1742384448412" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

@@ -1,6 +1,7 @@
-import pickle
-import pandas as pd
 import streamlit as st
+import pandas as pd
+import pickle
+import io
 
 # Load mô hình đã lưu
 with open("model.pkl", "rb") as f:
@@ -16,74 +17,74 @@ screen = st.sidebar.radio("Điều hướng", ["Dự đoán", "Thống kê & Tì
 if screen == "Dự đoán":
     st.title("🎯 Dự đoán Level với RapidMiner")
 
-    st.write("Vui lòng nhập giá trị cho từng chỉ số:")
+    st.write("Vui lòng chọn cách nhập dữ liệu:")
 
-    # Chia giao diện thành nhiều cột
-    cols = st.columns(5)
+    # Tabs: Nhập tay hoặc Upload file
+    tab1, tab2 = st.tabs(["📋 Nhập tay", "📂 Tải file .xlsx"])
 
-    # Lưu dữ liệu nhập
-    user_input = {}
+    # === Tab Nhập tay ===
+    with tab1:
+        st.write("Vui lòng nhập giá trị cho từng chỉ số:")
 
-    # Hiển thị các input theo hàng ngang
-    for i, feature in enumerate(expected_features):
-        with cols[i % 5]:
-            user_input[feature] = st.number_input(f"{feature}", value=0.0)
+        cols = st.columns(5)
+        user_input = {}
 
-    # Khi nhấn nút dự đoán
-    if st.button("🚀 Dự đoán Level"):
-        # Tạo DataFrame từ dữ liệu người dùng
-        input_data = pd.DataFrame([user_input])
+        for i, feature in enumerate(expected_features):
+            with cols[i % 5]:
+                user_input[feature] = st.number_input(f"{feature}", value=0.0)
 
-        # Dự đoán Level
-        prediction = model.predict(input_data)[0]
+        if st.button("🚀 Dự đoán từ nhập tay"):
+            input_data = pd.DataFrame([user_input])
 
-        # Hiển thị kết quả
-        st.success(f"🎯 Kết quả dự đoán: {prediction}")
+            # Dự đoán Level
+            prediction = model.predict(input_data)[0]
 
-elif screen == "Thống kê & Tìm kiếm":
-    st.title("📊 Thống kê & Lọc bệnh nhân")
+            st.success(f"🎯 Kết quả dự đoán: {prediction}")
 
-    try:
-        # Đọc dữ liệu
-        df = pd.read_csv("unlabeled_data.csv")
+    # === Tab Upload file ===
+    with tab2:
+        st.write("Tải lên file Excel (.xlsx) có định dạng phù hợp:")
 
-        if df.empty:
-            st.error("❌ Dữ liệu trống! Hãy thực hiện dự đoán trước.")
-        else:
-            # Loại bỏ cột không phải số
-            numeric_df = df.select_dtypes(include=['number'])
+        uploaded_file = st.file_uploader("📂 Chọn file .xlsx", type=["xlsx"])
 
-            # Hiển thị thống kê mô tả
-            st.write("### 📌 Thống kê mô tả")
-            st.write(numeric_df.describe())
+        if uploaded_file is not None:
+            try:
+                df_input = pd.read_excel(uploaded_file)
 
-            # Hiển thị biểu đồ phân phối
-            if not numeric_df.empty:
-                st.write("### 📊 Biểu đồ phân phối")
-                st.bar_chart(numeric_df)
-            else:
-                st.warning("⚠ Không có dữ liệu số để hiển thị biểu đồ!")
+                # Tiền xử lý: chuẩn hóa tên cột giống với model
+                df_input.columns = [col.strip().replace(" ", "_") for col in df_input.columns]
 
-            # Bộ lọc dữ liệu
-            st.write("### 🔍 Tìm kiếm bệnh nhân theo chỉ số")
+                # Kiểm tra thiếu cột
+                missing_cols = set(expected_features) - set(df_input.columns)
+                if missing_cols:
+                    st.error(f"⚠️ Thiếu các cột sau trong file: {', '.join(missing_cols)}")
+                else:
+                    st.write("📄 Dữ liệu đã tải lên:")
+                    st.dataframe(df_input)
 
-            # Chia giao diện thành 5 cột cho các bộ lọc
-            filter_cols = st.columns(5)
-            filters = {}
+                    # Lọc đúng các cột model cần
+                    model_input = df_input[expected_features]
 
-            for i, feature in enumerate(numeric_df.columns):
-                with filter_cols[i % 5]:
-                    min_val, max_val = float(df[feature].min()), float(df[feature].max())
-                    filters[feature] = st.slider(f"{feature}", min_val, max_val, (min_val, max_val))
+                    if st.button("🚀 Dự đoán từ file"):
+                        predictions = model.predict(model_input)
+                        df_input['Dự đoán Level'] = predictions
 
-            # Lọc dữ liệu dựa trên giá trị nhập vào slider
-            filtered_df = df.copy()
-            for feature, (min_val, max_val) in filters.items():
-                filtered_df = filtered_df[(filtered_df[feature] >= min_val) & (filtered_df[feature] <= max_val)]
+                        st.success("✅ Dự đoán thành công!")
+                        st.write(df_input)
 
-            # Hiển thị kết quả lọc
-            st.write(f"### 🏥 Kết quả lọc ({len(filtered_df)} bệnh nhân)")
-            st.dataframe(filtered_df)
+                        # Xuất file kết quả vào bộ nhớ
+                        output = io.BytesIO()
+                        with pd.ExcelWriter(output, engine='xlsxwriter') as writer:
+                            df_input.to_excel(writer, index=False)
+                        output.seek(0)
 
-    except FileNotFoundError:
-        st.error("❌ Không tìm thấy dữ liệu! Hãy thực hiện dự đoán trước.")
+                        # Nút tải file
+                        st.download_button(
+                            label="📥 Tải kết quả về (.xlsx)",
+                            data=output,
+                            file_name="prediction_results.xlsx",
+                            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                        )
+            except Exception as e:
+                st.error(f"❌ Lỗi khi đọc file: {e}")
+
