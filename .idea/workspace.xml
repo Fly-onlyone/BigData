@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45566237-c2ba-44b4-af19-90582e0ff79b" name="Changes" comment="Hive server">
+      <change beforePath="$PROJECT_DIR$/.idea/jupyter-settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jupyter-settings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hive_server.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/Hive_server.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/model.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/Train.py" beforeDir="false" afterPath="$PROJECT_DIR$/model/Train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unlabeled_data.csv" beforeDir="false" afterPath="$PROJECT_DIR$/unlabeled_data.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +225,16 @@
       <workItem from="1742477005930" duration="314000" />
       <workItem from="1742477795761" duration="563000" />
       <workItem from="1742479025502" duration="15000" />
-      <workItem from="1742479159332" duration="1192000" />
+      <workItem from="1742479159332" duration="1541000" />
+      <workItem from="1742481043878" duration="85000" />
+      <workItem from="1742517040201" duration="680000" />
+      <workItem from="1742518509227" duration="216000" />
+      <workItem from="1742518755962" duration="322000" />
+      <workItem from="1742519092271" duration="161000" />
+      <workItem from="1742519320432" duration="57000" />
+      <workItem from="1742519389711" duration="10000" />
+      <workItem from="1742519596706" duration="397000" />
+      <workItem from="1742520705505" duration="323000" />
     </task>
     <task id="LOCAL-00001" summary="Delete frontend">
       <option name="closed" value="true" />
@@ -263,7 +276,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742479033959</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Hive server">
+      <option name="closed" value="true" />
+      <created>1742480736543</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1742480736543</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
