@@ -1,10 +1,9 @@
 import streamlit as st
 import pandas as pd
 import pickle
-import uuid
 from pyhive import hive
 
-# Kết nối Hive
+# Kết nối đến Hive
 try:
     conn = hive.Connection(
         host="localhost", port=10000, username="hive", database="default"
@@ -30,23 +29,18 @@ def generate_patient_id():
     try:
         cursor.execute("SELECT patient_id FROM cancer_table")
         ids = [row[0] for row in cursor.fetchall()]
-
-        # Lọc ra những ID hợp lệ (bắt đầu bằng 'P' và có số phía sau)
-        numbers = [int(id[1:]) for id in ids if id.startswith("P") and id[1:].isdigit()]
-
-        # Nếu không có ID nào, bắt đầu từ P001
+        numbers = [
+            int(pid[1:]) for pid in ids if pid.startswith("P") and pid[1:].isdigit()
+        ]
         new_number = max(numbers) + 1 if numbers else 1
-        return f"P{new_number:03d}"  # Định dạng luôn có 3 chữ số
-
+        return f"P{new_number:03d}"
     except Exception as e:
-        print(f"Lỗi khi tạo patient_id: {e}")
+        st.error(f"Lỗi khi tạo patient_id: {e}")
         return "P001"
-
-    # ================= PHẦN DỰ ĐOÁN =================
 
 
 st.header("🎯 Dự đoán Level")
-prediction_tab, stats_tab = st.tabs(["Dự đoán", "📊 Thống kê & Tìm kiếm"])
+prediction_tab, stats_tab = st.tabs(["Dự đoán", "📊 Thống kê & Tìm kiếm dữ liệu"])
 
 with prediction_tab:
     input_method = st.radio(
@@ -63,84 +57,123 @@ with prediction_tab:
             user_input["Age"] = st.number_input(
                 "Tuổi", min_value=1, max_value=100, value=30, step=1
             )
-
         with cols[1]:
             gender_mapping = {"Nam": 1, "Nữ": 2}
-            gender = st.selectbox("Giới tính", options=["Nam", "Nữ"], index=0)
-            user_input["Gender"] = gender_mapping[gender]
+            gender_text = st.selectbox("Giới tính", options=["Nam", "Nữ"], index=0)
+            user_input["Gender"] = gender_mapping[gender_text]
 
+        # Build user input for prediction: assume expected_features excludes "Age" and "Gender"
+        # (if they are used in prediction, adjust accordingly)
         other_features = [f for f in expected_features if f not in ["Age", "Gender"]]
-        cols_other = st.columns(3)
-        for i, feature in enumerate(other_features):
-            with cols_other[i % 3]:
-                user_input[feature] = st.number_input(
-                    f"{feature}", min_value=0, value=0, step=1, format="%d"
-                )
+        for feature in other_features:
+            user_input[feature] = st.number_input(
+                f"{feature}", min_value=0, value=0, step=1
+            )
 
         if st.button("🚀 Thực hiện dự đoán", use_container_width=True):
+            # Create a DataFrame with all input values
             input_data = pd.DataFrame([user_input])
-            input_data = input_data.drop(columns=["Age", "Gender"], errors="ignore")
+            # Rename keys to lowercase for consistency with Hive table schema
+            input_data.rename(columns={"Age": "age", "Gender": "gender"}, inplace=True)
 
             try:
-                prediction = model.predict(input_data)[0]
+                # Use only the features needed for prediction
+                features_for_pred = input_data[
+                    [f for f in input_data.columns if f in other_features]
+                ]
+                prediction = model.predict(features_for_pred)[0]
                 st.success(f"**Kết quả dự đoán:** {prediction}")
 
                 patient_id = generate_patient_id()
 
-                save_df = input_data.copy()
-                save_df["level"] = prediction
-                save_df["gender"] = gender
-                save_df["patient_id"] = patient_id
+                # Expected table columns in the correct order:
+                expected_columns = [
+                    "patient_id",
+                    "age",
+                    "gender",
+                    "air_pollution",
+                    "alcohol_use",
+                    "dust_allergy",
+                    "occupational_hazards",
+                    "genetic_risk",
+                    "chronic_lung_disease",
+                    "balanced_diet",
+                    "obesity",
+                    "smoking",
+                    "passive_smoker",
+                    "chest_pain",
+                    "coughing_of_blood",
+                    "fatigue",
+                    "weight_loss",
+                    "shortness_of_breath",
+                    "wheezing",
+                    "swallowing_difficulty",
+                    "clubbing_of_finger_nails",
+                    "frequent_cold",
+                    "dry_cough",
+                    "snoring",
+                    "level",
+                ]
 
-                try:
-                    for _, row in save_df.iterrows():
-                        # Chuyển đổi giá trị thành đúng định dạng của Hive
-                        values = ", ".join(
-                            [f"'{x}'" if isinstance(x, str) else str(x) for x in row]
+                # Build a dictionary with values from input_data and defaults for missing columns.
+                insert_data = {}
+                # For columns that come from user input:
+                # age and gender are provided; other features might or might not be provided.
+                for col in expected_columns:
+                    if col == "patient_id":
+                        insert_data[col] = patient_id
+                    elif col == "level":
+                        insert_data[col] = prediction
+                    elif col in input_data.columns:
+                        insert_data[col] = input_data[col].iloc[0]
+                    else:
+                        # Set default value: numeric columns default to 0, string columns to empty.
+                        # Here we assume columns except patient_id and level are numeric.
+                        insert_data[col] = 0
+
+                # Convert dictionary to DataFrame ensuring the column order:
+                save_df = pd.DataFrame([insert_data], columns=expected_columns)
+
+                # Build INSERT statement:
+                columns_str = ", ".join(expected_columns)
+                # Create a comma-separated list of values, wrapping strings in single quotes.
+                # For simplicity, we assume all values are either numeric or strings.
+                values = ", ".join(
+                    [
+                        (
+                            f"'{str(x).replace(chr(39), chr(39)*2)}'"
+                            if isinstance(x, str)
+                            else str(x)
                         )
+                        for x in save_df.iloc[0]
+                    ]
+                )
 
-                        # Đảm bảo cột khớp với bảng Hive
-                        column_names = ", ".join(save_df.columns)
-
-                        # Fix lỗi 'gender' không có trong bảng Hive
-                        if "gender" not in column_names.lower():
-                            column_names = column_names.replace("gender", "Gender")
-
-                        # Thực hiện câu lệnh INSERT
-                        insert_query = f"INSERT INTO cancer_table ({column_names}) VALUES ({values})"
-                        st.write(f"📌 Debug SQL: {insert_query}")  # Debug câu lệnh SQL
-                        cursor.execute(insert_query)
-
-                    conn.commit()
-                    st.success(
-                        f"✅ Dữ liệu đã lưu vào Hive với patient_id: {patient_id}"
-                    )
-
-                except Exception as e:
-                    st.error(f"Lỗi lưu dữ liệu vào Hive: {e}")
-
+                insert_query = (
+                    f"INSERT INTO cancer_table ({columns_str}) VALUES ({values})"
+                )
+                st.write(f"📌 Debug SQL: {insert_query}")  # Debug output
+                cursor.execute(insert_query)
+                conn.commit()
+                st.success(f"✅ Dữ liệu đã lưu vào Hive với patient_id: {patient_id}")
             except Exception as e:
-                st.error(f"Lỗi dự đoán: {str(e)}")
+                st.error(f"Lỗi dự đoán hoặc lưu dữ liệu: {str(e)}")
 
-
-# ================= PHẦN THỐNG KÊ & TÌM KIẾM =================
+# ---------------- PHẦN THỐNG KÊ & TÌM KIẾM ----------------
 st.subheader("📊 Thống kê & Tìm kiếm dữ liệu")
 
 
 def fetch_hive_data():
     try:
-        query = "SELECT * FROM cancer_table"
-        cursor.execute(query)
+        cursor.execute("SELECT * FROM cancer_table")
         rows = cursor.fetchall()
         columns = [desc[0] for desc in cursor.description]
-        df = pd.DataFrame(rows, columns=columns)
-        return df
+        return pd.DataFrame(rows, columns=columns)
     except Exception as e:
         st.error(f"Lỗi lấy dữ liệu từ Hive: {e}")
         return pd.DataFrame()
 
 
-# Nút làm mới dữ liệu
 if st.button("🔄 Làm mới dữ liệu", use_container_width=True):
     st.session_state["df_history"] = fetch_hive_data()
     st.rerun()
@@ -151,9 +184,9 @@ if "df_history" not in st.session_state:
 df_history = st.session_state["df_history"]
 
 if not df_history.empty:
-    if "Age" in df_history.columns and pd.api.types.is_numeric_dtype(df_history["Age"]):
-        age_min = int(df_history["Age"].min())
-        age_max = int(df_history["Age"].max())
+    if "age" in df_history.columns and pd.api.types.is_numeric_dtype(df_history["age"]):
+        age_min = int(df_history["age"].min())
+        age_max = int(df_history["age"].max())
         col_age1, col_age2 = st.columns(2)
         age_from = col_age1.number_input(
             "Tuổi (nhỏ nhất)",
@@ -172,8 +205,8 @@ if not df_history.empty:
     else:
         age_from, age_to_val = None, None
 
-    if "Gender" in df_history.columns:
-        gender_options = sorted(df_history["Gender"].dropna().unique().tolist())
+    if "gender" in df_history.columns:
+        gender_options = sorted(df_history["gender"].dropna().unique().tolist())
         gender_filter = st.multiselect(
             "Chọn giới tính:", gender_options, default=gender_options
         )
@@ -183,11 +216,15 @@ if not df_history.empty:
     filtered_df = df_history.copy()
     if age_from is not None and age_to_val is not None:
         filtered_df = filtered_df[
-            (filtered_df["Age"] >= age_from) & (filtered_df["Age"] <= age_to_val)
+            (filtered_df["age"] >= age_from) & (filtered_df["age"] <= age_to_val)
         ]
     if gender_filter:
-        filtered_df = filtered_df[filtered_df["Gender"].isin(gender_filter)]
+        filtered_df = filtered_df[filtered_df["gender"].isin(gender_filter)]
 
     st.dataframe(filtered_df, use_container_width=True)
 else:
     st.warning("📌 Chưa có dữ liệu dự đoán nào!")
+
+# Close Hive connection when done (optional if you want to allow further interactions)
+# cursor.close()
+# conn.close()
