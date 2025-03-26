@@ -16,7 +16,7 @@ except Exception as e:
 
 # ---------------- LOAD MODEL ----------------
 try:
-    with open("model.pkl", "rb") as f:
+    with open("model/model.pkl", "rb") as f:
         model = pickle.load(f)
     # You can define the exact order of features here, including snoring's position
     # If your model has a certain order, you can reorder them below as needed:
@@ -212,7 +212,7 @@ def fetch_hive_data():
 
 if st.button("🔄 Làm mới dữ liệu", use_container_width=True):
     st.session_state["df_history"] = fetch_hive_data()
-    st.experimental_rerun()
+    st.rerun()
 
 if "df_history" not in st.session_state:
     st.session_state["df_history"] = fetch_hive_data()
