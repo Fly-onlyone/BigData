@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="45566237-c2ba-44b4-af19-90582e0ff79b" name="Changes" comment="Final" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Jupyter Notebook" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Fly-onlyone&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Fly-onlyone/BigData.git&quot;,
+    &quot;accountId&quot;: &quot;8a83aa33-4be6-4705-9f38-84a97707207e&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2tskuQoKMnNs9HhEjeKZmaZGxPY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="openDirectoriesWithSingleClick" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.Download.executor&quot;: &quot;Run&quot;,
+    &quot;Python.RandomData.executor&quot;: &quot;Run&quot;,
+    &quot;Python.app.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Shell Script.Run streamlit.executor&quot;: &quot;Run&quot;,
+    &quot;Shell Script.Unnamed.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore_missing_gitignore&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/PC/OneDrive - Ho Chi Minh City University of Foreign Languages and Information Technology - HUFLIT/Documents/AltairRapidMiner/BigData/spark-hive-jars&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\PC\OneDrive - Ho Chi Minh City University of Foreign Languages and Information Technology - HUFLIT\Documents\AltairRapidMiner\BigData\spark-hive-jars" />
+      <recent name="C:\Users\PC\OneDrive - Ho Chi Minh City University of Foreign Languages and Information Technology - HUFLIT\Documents\AltairRapidMiner\BigData" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\PC\OneDrive - Ho Chi Minh City University of Foreign Languages and Information Technology - HUFLIT\Documents\AltairRapidMiner\BigData\report" />
+      <recent name="C:\Users\PC\OneDrive - Ho Chi Minh City University of Foreign Languages and Information Technology - HUFLIT\Documents\AltairRapidMiner\BigData\model" />
+      <recent name="C:\Users\PC\OneDrive - Ho Chi Minh City University of Foreign Languages and Information Technology - HUFLIT\Documents\AltairRapidMiner\BigData\data" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.RandomData">
+    <configuration name="Download" type="PythonConfigurationType" factoryName="Python">
+      <module name="BigData" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="BigData" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Download.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="RandomData" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="BigData" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="BigData" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/RandomData.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Run streamlit" type="ShConfigurationType">
+      <option name="SCRIPT_TEXT" value="streamlit run &quot;Cancer Prediction.py&quot;" />
+      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
+      <option name="SCRIPT_PATH" value="" />
+      <option name="SCRIPT_OPTIONS" value="" />
+      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
+      <option name="INTERPRETER_PATH" value="powershell.exe" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="EXECUTE_IN_TERMINAL" value="true" />
+      <option name="EXECUTE_SCRIPT_FILE" value="false" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.Download" />
+      <item itemvalue="Python.RandomData" />
+      <item itemvalue="Shell Script.Run streamlit" />
+    </list>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-PY-243.26053.29" />
+        <option value="bundled-python-sdk-b1dbf8ef85a6-4df51de95216-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.26053.29" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="45566237-c2ba-44b4-af19-90582e0ff79b" name="Changes" comment="" />
+      <created>1740275860530</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1740275860530</updated>
+      <workItem from="1741148396253" duration="787000" />
+      <workItem from="1741161802357" duration="1652000" />
+      <workItem from="1741163707979" duration="249000" />
+      <workItem from="1741163970597" duration="124000" />
+      <workItem from="1741164251616" duration="165000" />
+      <workItem from="1741164703338" duration="1242000" />
+      <workItem from="1741165969350" duration="2888000" />
+      <workItem from="1741170326578" duration="4439000" />
+      <workItem from="1741176893657" duration="109000" />
+      <workItem from="1741224609299" duration="1000" />
+      <workItem from="1741262409690" duration="45000" />
+      <workItem from="1741352160194" duration="1007000" />
+      <workItem from="1741355438927" duration="925000" />
+      <workItem from="1741356388620" duration="286000" />
+      <workItem from="1741357155656" duration="1160000" />
+      <workItem from="1741358455623" duration="1290000" />
+      <workItem from="1741394831066" duration="3194000" />
+      <workItem from="1741398701487" duration="491000" />
+      <workItem from="1741403025695" duration="147000" />
+      <workItem from="1741490553706" duration="4228000" />
+      <workItem from="1741495368019" duration="1255000" />
+      <workItem from="1741506198873" duration="616000" />
+      <workItem from="1741513404062" duration="634000" />
+      <workItem from="1741514233009" duration="15000" />
+      <workItem from="1741514624126" duration="2736000" />
+      <workItem from="1741517480932" duration="431000" />
+      <workItem from="1741521002521" duration="58000" />
+      <workItem from="1741839432834" duration="134000" />
+      <workItem from="1741839577256" duration="4487000" />
+      <workItem from="1742353619994" duration="4117000" />
+      <workItem from="1742358220231" duration="116000" />
+      <workItem from="1742380827874" duration="3597000" />
+      <workItem from="1742384760183" duration="262000" />
+      <workItem from="1742385033836" duration="904000" />
+      <workItem from="1742386086376" duration="2130000" />
+      <workItem from="1742393388593" duration="2179000" />
+      <workItem from="1742395700106" duration="379000" />
+      <workItem from="1742396225150" duration="436000" />
+      <workItem from="1742426921082" duration="170000" />
+      <workItem from="1742427971527" duration="250000" />
+      <workItem from="1742428236049" duration="480000" />
+      <workItem from="1742428730197" duration="4162000" />
+      <workItem from="1742436995608" duration="319000" />
+      <workItem from="1742437563593" duration="2080000" />
+      <workItem from="1742440473696" duration="30000" />
+      <workItem from="1742443287261" duration="897000" />
+      <workItem from="1742458747608" duration="48000" />
+      <workItem from="1742467234186" duration="1616000" />
+      <workItem from="1742469645520" duration="2965000" />
+      <workItem from="1742474295052" duration="1037000" />
+      <workItem from="1742475610968" duration="45000" />
+      <workItem from="1742477005930" duration="314000" />
+      <workItem from="1742477795761" duration="563000" />
+      <workItem from="1742479025502" duration="15000" />
+      <workItem from="1742479159332" duration="1541000" />
+      <workItem from="1742481043878" duration="85000" />
+      <workItem from="1742517040201" duration="680000" />
+      <workItem from="1742518509227" duration="216000" />
+      <workItem from="1742518755962" duration="322000" />
+      <workItem from="1742519092271" duration="161000" />
+      <workItem from="1742519320432" duration="57000" />
+      <workItem from="1742519389711" duration="10000" />
+      <workItem from="1742519596706" duration="397000" />
+      <workItem from="1742520705505" duration="323000" />
+      <workItem from="1742521050857" duration="188000" />
+      <workItem from="1742638740079" duration="3000" />
+      <workItem from="1742897674011" duration="166000" />
+      <workItem from="1742897853028" duration="86000" />
+      <workItem from="1742897946277" duration="486000" />
+      <workItem from="1742898451799" duration="8875000" />
+      <workItem from="1742950358413" duration="4254000" />
+      <workItem from="1742956900023" duration="2702000" />
+      <workItem from="1742960310164" duration="38000" />
+      <workItem from="1742960363085" duration="2451000" />
+      <workItem from="1742987699147" duration="2000" />
+      <workItem from="1742987728246" duration="131000" />
+      <workItem from="1742987874592" duration="106000" />
+      <workItem from="1742987988520" duration="31000" />
+      <workItem from="1742988026051" duration="38000" />
+      <workItem from="1743082502092" duration="503000" />
+      <workItem from="1743165079626" duration="425000" />
+      <workItem from="1743217676004" duration="170000" />
+      <workItem from="1743237880617" duration="618000" />
+      <workItem from="1743238899431" duration="721000" />
+      <workItem from="1743300544139" duration="6770000" />
+      <workItem from="1743382921636" duration="230000" />
+      <workItem from="1743413899819" duration="2174000" />
+      <workItem from="1743416300775" duration="118000" />
+      <workItem from="1743559826484" duration="32000" />
+      <workItem from="1743565443246" duration="1394000" />
+      <workItem from="1743580795065" duration="298000" />
+      <workItem from="1743583827873" duration="321000" />
+      <workItem from="1743584163531" duration="1206000" />
+      <workItem from="1743587461770" duration="1630000" />
+      <workItem from="1743591576503" duration="1593000" />
+    </task>
+    <task id="LOCAL-00001" summary="Delete frontend">
+      <option name="closed" value="true" />
+      <created>1741403168539</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1741403168539</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Demo 1">
+      <option name="closed" value="true" />
+      <created>1741521051114</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1741521051114</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Demo 1">
+      <option name="closed" value="true" />
+      <created>1742353636598</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1742353636598</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Hive server">
+      <option name="closed" value="true" />
+      <created>1742435852773</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1742435852773</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Hive server">
+      <option name="closed" value="true" />
+      <created>1742479033959</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1742479033959</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Hive server">
+      <option name="closed" value="true" />
+      <created>1742480736543</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1742480736543</updated>
+    </task>
+    <task id="LOCAL-00007" summary="First setup">
+      <option name="closed" value="true" />
+      <created>1742521168407</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1742521168407</updated>
+    </task>
+    <task id="LOCAL-00008" summary="First setup">
+      <option name="closed" value="true" />
+      <created>1742910200826</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1742910200826</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add insert feature">
+      <option name="closed" value="true" />
+      <created>1742958577902</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1742958577902</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add insert feature">
+      <option name="closed" value="true" />
+      <created>1742959660877</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1742959660877</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Restructure project">
+      <option name="closed" value="true" />
+      <created>1742987895970</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1742987895970</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Thêm hiển thị dữ liệu ban đầu, xoá nhập tay , bỏ lọc patient_id">
+      <option name="closed" value="true" />
+      <created>1743306606108</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1743306606108</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Thêm hiển thị dữ liệu ban đầu, xoá nhập tay , bỏ lọc patient_id">
+      <option name="closed" value="true" />
+      <created>1743414042728</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1743414042728</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Bỏ cột patient_id trong lọc">
+      <option name="closed" value="true" />
+      <created>1743416080765</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1743416080765</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Final">
+      <option name="closed" value="true" />
+      <created>1743593161546</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1743593161546</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="dependencySupport" implementationName="executable:kubectl" />
+    <option featureType="dependencySupport" implementationName="python:pyspark" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Delete frontend" />
+    <MESSAGE value="Demo 1" />
+    <MESSAGE value="Hive server" />
+    <MESSAGE value="First setup" />
+    <MESSAGE value="Add insert feature" />
+    <MESSAGE value="Restructure project" />
+    <MESSAGE value="Thêm hiển thị dữ liệu ban đầu, xoá nhập tay , bỏ lọc patient_id" />
+    <MESSAGE value="Bỏ cột patient_id trong lọc" />
+    <MESSAGE value="Final" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$USER_HOME$/anaconda3/envs/BigData/Lib/site-packages/rapidminer/__init__.py</url>
+          <line>19</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/BigData$RandomData.coverage" NAME="RandomData Coverage Results" MODIFIED="1743584331824" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/BigData$app.coverage" NAME="app Coverage Results" MODIFIED="1741168453326" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/BigData$Download.coverage" NAME="Download Coverage Results" MODIFIED="1742384448412" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+  </component>
+</project>
