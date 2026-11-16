@@ -1,14 +1,21 @@
+"""Bước cuối của process RapidMiner (operator Execute Python).
+
+Lưu model và kết quả dự đoán, rồi khởi động (hoặc khởi động lại) ứng dụng Streamlit.
+"""
+
 import os
 import pickle
 import subprocess
+import sys
 import time
+from pathlib import Path
 
 import pandas as pd
 import psutil
 
-PORT_FILE = "port/streamlit_port.txt"
+BASE_DIR = Path(__file__).resolve().parent
+PORT_FILE = BASE_DIR / "port" / "streamlit_port.txt"
 DEFAULT_PORT = 8501
-BROWSER_LOCK_FILE = "port/browser_opened.lock"
 
 
 def find_running_streamlit():
@@ -17,7 +24,7 @@ def find_running_streamlit():
             cmd = proc.info["cmdline"]
             if cmd and "streamlit" in cmd and "run" in cmd:
                 for arg in cmd:
-                    if "--server.port=" in arg:
+                    if arg.startswith("--server.port="):
                         return proc, int(arg.split("=")[1])
         except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
             pass
@@ -25,9 +32,11 @@ def find_running_streamlit():
 
 
 def save_predictions_to_excel(
-    predicted_trainset, predicted_testset, filename="data/predictions.xlsx"
+    predicted_trainset,
+    predicted_testset,
+    filename=BASE_DIR / "data" / "predictions.xlsx",
 ):
-    os.makedirs("data", exist_ok=True)
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
 
     combined_df = pd.concat([predicted_trainset, predicted_testset], ignore_index=True)
 
@@ -36,9 +45,9 @@ def save_predictions_to_excel(
 
 
 def rm_main(model, predicted_trainset, predicted_testset):
-    os.makedirs("model", exist_ok=True)
+    os.makedirs(BASE_DIR / "model", exist_ok=True)
 
-    with open("model/model.pkl", "wb") as f:
+    with open(BASE_DIR / "model" / "model.pkl", "wb") as f:
         pickle.dump(model, f)
     save_predictions_to_excel(predicted_trainset, predicted_testset)
     old_proc, old_port = find_running_streamlit()
@@ -51,13 +60,14 @@ def rm_main(model, predicted_trainset, predicted_testset):
 
     port = old_port or DEFAULT_PORT
 
-    os.makedirs(os.path.dirname(PORT_FILE), exist_ok=True)
-    with open(PORT_FILE, "w") as f:
-        f.write(str(port))
+    os.makedirs(PORT_FILE.parent, exist_ok=True)
+    PORT_FILE.write_text(str(port))
 
+    # Truyền danh sách tham số, không qua shell. "--server.port=<port>" viết liền
+    # để find_running_streamlit() đọc lại được cổng ở lần chạy sau.
     subprocess.Popen(
-        ["streamlit", "run", "Cancer Prediction.py", "--server.port", str(port)],
-        shell=True,
+        [sys.executable, "-m", "streamlit", "run", "app.py", f"--server.port={port}"],
+        cwd=BASE_DIR,
     )
 
     return None

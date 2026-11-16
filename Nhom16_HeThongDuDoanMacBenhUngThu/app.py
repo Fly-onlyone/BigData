@@ -1,24 +1,32 @@
+import math
+import os
 import pickle
+from pathlib import Path
 
 import altair as alt
 import pandas as pd
 import streamlit as st
 from pyhive import hive
 
+BASE_DIR = Path(__file__).resolve().parent
+HIVE_HOST = os.getenv("HIVE_HOST", "localhost")
+HIVE_PORT = int(os.getenv("HIVE_PORT", "10000"))
+HIVE_USER = os.getenv("HIVE_USER", "hive")
+
 # KẾT NỐI HIVE
 try:
     conn = hive.Connection(
-        host="localhost", port=10000, username="hive", database="default"
+        host=HIVE_HOST, port=HIVE_PORT, username=HIVE_USER, database="default"
     )
     cursor = conn.cursor()
     cursor.execute("USE cancer_db")
 except Exception as e:
-    st.error(f"Lỗi kết nối Hive: {e}")
+    st.error(f"Lỗi kết nối Hive ({HIVE_HOST}:{HIVE_PORT}): {e}")
     st.stop()
 
 # LOAD MODEL
 try:
-    with open("model/model.pkl", "rb") as f:
+    with open(BASE_DIR / "model" / "model.pkl", "rb") as f:
         model = pickle.load(f)
     custom_feature_order = [
         "air_pollution",
@@ -68,9 +76,39 @@ def generate_patient_id():
 
 
 # HÀM MAP PREDICTION
+# Model cũ xuất từ RapidMiner trả về nhãn dạng số. Thứ tự mã hóa của nó là
+# 0 = Low, 1 = High, 2 = Medium (đối chiếu dự đoán với cột Level trong Cancer.csv),
+# không phải 0/1/2 = Low/Medium/High như bản trước giả định.
+# Model huấn luyện bằng train_model.py trả thẳng chuỗi "Low"/"Medium"/"High".
+LEGACY_LABELS = {0: "Low", 1: "High", 2: "Medium"}
+
+
 def map_prediction(pred):
-    mapping = {0: "Low", 1: "Medium", 2: "High"}
-    return mapping.get(pred, "Unknown")
+    if isinstance(pred, str):
+        return pred
+    return LEGACY_LABELS.get(int(pred), "Unknown")
+
+
+GENDER_CODES = {"nam": 1, "nữ": 2, "nu": 2}
+
+
+def to_hive_int(col, value):
+    """Ép giá trị từ Excel về int cho cột INT của cancer_table.
+
+    Ô không phải số sẽ báo lỗi cho dòng đó thay vì được ghép vào câu SQL.
+    Gender nhận cả 1/2 lẫn "Nam"/"Nữ" (bảng Hive lưu 1 = Nam, 2 = Nữ).
+    """
+    if col == "gender" and isinstance(value, str):
+        code = GENDER_CODES.get(value.strip().lower())
+        if code is None:
+            raise ValueError(f"gender không hợp lệ: {value!r}")
+        return code
+    number = float(pd.to_numeric(value))
+    if math.isnan(number):
+        return None
+    if not number.is_integer():
+        raise ValueError(f"{col} phải là số nguyên, nhận {value!r}")
+    return int(number)
 
 
 # GIAO DIỆN CHÍNH
@@ -81,7 +119,9 @@ st.markdown("## 📋 Xem Dữ Liệu Dự Đoán Ban Đầu")
 
 if st.button("📂 Hiển thị dữ liệu", key="show_predicted_data"):
     try:
-        df_predicted = pd.read_excel("data/predictions.xlsx", engine="openpyxl")
+        df_predicted = pd.read_excel(
+            BASE_DIR / "data" / "predictions.xlsx", engine="openpyxl"
+        )
 
         # Chuẩn hóa tên cột nếu cần
         df_predicted.columns = [
@@ -146,7 +186,6 @@ if uploaded_file is not None:
                     prediction_text = map_prediction(numeric_prediction)
 
                     patient_id = f"P{start_num:03d}"
-                    start_num += 1
 
                     # Chuẩn bị dữ liệu để lưu vào Hive
                     insert_data = {}
@@ -190,25 +229,24 @@ if uploaded_file is not None:
                         else:
                             insert_data[col] = 0
 
-                    # Tạo câu truy vấn INSERT
-                    save_df = pd.DataFrame([insert_data], columns=expected_columns)
-                    columns_str = ", ".join(save_df.columns)
-                    values = ", ".join(
-                        [
-                            (
-                                f"'{str(x).replace(chr(39), chr(39)*2)}'"
-                                if isinstance(x, str)
-                                else str(x)
-                            )
-                            for x in save_df.iloc[0]
-                        ]
-                    )
-                    insert_query = (
-                        f"INSERT INTO cancer_table ({columns_str}) VALUES ({values})"
-                    )
+                    # Mọi cột INT được ép kiểu trước khi INSERT, nên chuỗi duy nhất
+                    # đi vào câu SQL là patient_id và level, đều do ứng dụng tạo ra.
+                    # Nội dung ô Excel không thể chèn thêm lệnh SQL.
+                    columns_str = ", ".join(expected_columns)
+                    placeholders = ", ".join(f"%({c})s" for c in expected_columns)
+                    insert_query = f"INSERT INTO cancer_table ({columns_str}) VALUES ({placeholders})"
+                    params = {
+                        c: (
+                            insert_data[c]
+                            if c in ("patient_id", "level")
+                            else to_hive_int(c, insert_data[c])
+                        )
+                        for c in expected_columns
+                    }
 
-                    cursor.execute(insert_query)
+                    cursor.execute(insert_query, params)
                     conn.commit()
+                    start_num += 1  # chỉ tăng khi dòng đã lưu thành công
                     success_count += 1
                     results.append({"patient_id": patient_id, "level": prediction_text})
                 except Exception as row_err:
