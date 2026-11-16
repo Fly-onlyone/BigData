@@ -1,0 +1,15 @@
+# IDE
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+.env
+
+# File sinh ra khi chạy
+Nhom16_HeThongDuDoanMacBenhUngThu/data/
+Nhom16_HeThongDuDoanMacBenhUngThu/port/
